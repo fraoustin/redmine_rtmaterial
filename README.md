@@ -4,7 +4,7 @@
 
 Add field "RTMaterial" for project.
 
-You can selected color for RTMaterial Theme by project
+You can selected color for RTMaterial Theme (https://github.com/fraoustin/RTMaterial) by project
 
 
 ## Installation
