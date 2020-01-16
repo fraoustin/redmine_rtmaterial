@@ -1,4 +1,4 @@
-class RtmaterialCustomFields < ActiveRecord::Migration
+class RtmaterialCustomFields < ActiveRecord::Migration[4.2]
     # method called when installing the plugin
     def self.up
       if ProjectCustomField.find_by_name('RTMaterial').nil?
