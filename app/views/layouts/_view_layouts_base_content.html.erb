@@ -1,5 +1,10 @@
 <% if !@project.nil? %>
     <% if @project.custom_field_values.find{ |f| f.custom_field.name == 'RTMaterial' } %>
-    <link rel="stylesheet" href="/themes/RTMaterial/stylesheets/colors/<%= @project.custom_field_values.find{ |f| f.custom_field.name == 'RTMaterial' }.value %>.css" type="text/css" />
+        <link rel="stylesheet" href="/themes/RTMaterial/stylesheets/colors/<%= @project.custom_field_values.find{ |f| f.custom_field.name == 'RTMaterial' }.value %>.css" type="text/css" />
+        <script>
+            $(document).ready(function() {
+                $("head").find("link[rel='shortcut icon']")[0].href = "/themes/RTMaterial/stylesheets/ico/icon-<%= @project.custom_field_values.find{ |f| f.custom_field.name == 'RTMaterial' }.value.split('-')[1] %>.ico";  
+            });
+        </script>
     <% end %>
 <% end %>
