@@ -1,0 +1,12 @@
+<% defaults = Redmine::Plugin::registered_plugins[:redmine_rtmaterial].settings[:default] %>
+<p>
+  <label><%= l(:setting_default_colors) %></label>
+  <%= hidden_field_tag 'settings[default_colors]', '' %>
+  <%= select_tag('settings[default_colors]', "<option value=''></option>".html_safe+options_for_select(ProjectCustomField.where('name' => 'RTMaterial').first.possible_values, (@settings["default_colors"] || defaults["default_colors"]).to_s), multiple: false, class: 'rtmaterial_default_colors') %>
+</p>
+
+<script>
+  $(document).ready(function() {
+    $('.rtmaterial_default_colors').select2({allowClear: true});
+  });
+</script>
