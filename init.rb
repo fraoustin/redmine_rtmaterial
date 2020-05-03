@@ -36,4 +36,8 @@ Redmine::Plugin.register :redmine_rtmaterial do
   url 'https://github.com/fraoustin/redmine_rtmaterial'
   author_url 'https://github.com/fraoustin'
   requires_redmine :version_or_higher => '2.3.0'
+
+  settings :default => {
+    'default_colors' => "",
+  }, :partial => 'settings/rtmaterial'
 end
