@@ -37,12 +37,13 @@ Redmine::Plugin.register :redmine_rtmaterial do
   name 'Redmine RTMaterial'
   author 'Frederic Aoustin'
   description 'The redmine_rtmaterial: select color for theme rtmaterial'
-  version '0.1.5'
+  version '0.1.4'
   url 'https://github.com/fraoustin/redmine_rtmaterial'
   author_url 'https://github.com/fraoustin'
   requires_redmine :version_or_higher => '2.3.0'
 
   settings :default => {
     'default_colors' => "",
+    'change_icon' => true,
   }, :partial => 'settings/rtmaterial'
 end

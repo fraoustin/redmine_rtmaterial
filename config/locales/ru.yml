@@ -1,2 +1,9 @@
 ru:
   setting_default_colors: "Цветовая схема по умолчанию"
+<<<<<<< HEAD
+  setting_change_icon: "RTMaterial изменять иконку"
+=======
+>>>>>>> 62b8626ca5388d60fda5fdc79813ae25124595c4
+  setting_rtmaterial_color_scheme: "Цветовая схема RTMaterial"
+  setting_rtmaterial_change_icon: "RTMaterial изменять иконку"
+  label_global_setting: "глобальная настройка:"

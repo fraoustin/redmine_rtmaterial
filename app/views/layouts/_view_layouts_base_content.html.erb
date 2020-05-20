@@ -1,11 +1,14 @@
 <%
-color_scheme = !@project.nil? && !@project.rtmaterial_style.nil? && @project.rtmaterial_style != "" ? @project.rtmaterial_style : Setting.plugin_redmine_rtmaterial['default_colors']
+color_scheme = !@project.nil? && !@project.rtmaterial_color_scheme.nil? && @project.rtmaterial_color_scheme != "" ? @project.rtmaterial_color_scheme : Setting.plugin_redmine_rtmaterial['default_colors']
+change_icon = !@project.nil? && !@project.rtmaterial_change_icon.nil? && @project.rtmaterial_change_icon != "" ? @project.rtmaterial_change_icon : Setting.plugin_redmine_rtmaterial['change_icon']
 %>
 <% if !color_scheme.nil? && color_scheme != "" %>
-    <link rel="stylesheet" href="/themes/RTMaterial/stylesheets/colors/<%= color_scheme %>.css" type="text/css" />
+  <link rel="stylesheet" href="/themes/RTMaterial/stylesheets/colors/<%= color_scheme %>.css" type="text/css" />
+  <% if !change_icon.nil? && change_icon != "" %>
     <script>
-        $(document).ready(function() {
-            $("head").find("link[rel='shortcut icon']")[0].href = "/themes/RTMaterial/stylesheets/ico/icon-<%= color_scheme.split('-')[1] %>.ico";
-        });
+      $(document).ready(function() {
+        $("head").find("link[rel='shortcut icon']")[0].href = "/themes/RTMaterial/stylesheets/ico/icon-<%= color_scheme.split('-')[1] %>.ico";
+      });
     </script>
+  <% end %>
 <% end %>
