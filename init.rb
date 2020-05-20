@@ -2,6 +2,7 @@
 
 
 require 'redmine'
+
 begin
   require 'config/initializers/session_store.rb'
   rescue LoadError
@@ -28,6 +29,10 @@ else
   end
 end
 
+Rails.application.config.to_prepare do
+  RedmineMaterial.apply_patch
+end
+
 Redmine::Plugin.register :redmine_rtmaterial do
   name 'Redmine RTMaterial'
   author 'Frederic Aoustin'
@@ -36,4 +41,8 @@ Redmine::Plugin.register :redmine_rtmaterial do
   url 'https://github.com/fraoustin/redmine_rtmaterial'
   author_url 'https://github.com/fraoustin'
   requires_redmine :version_or_higher => '2.3.0'
+
+  settings :default => {
+    'default_colors' => "",
+  }, :partial => 'settings/rtmaterial'
 end
