@@ -1,2 +1,5 @@
 en:
   setting_default_colors: "Default color scheme"
+  setting_rtmaterial_color_scheme: "TRMaterial color scheme"
+  setting_rtmaterial_change_icon: "TRMaterial change icon"
+  label_global_setting: "Global setting:"
