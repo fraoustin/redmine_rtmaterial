@@ -2,6 +2,7 @@
 
 
 require 'redmine'
+
 begin
   require 'config/initializers/session_store.rb'
   rescue LoadError
@@ -26,6 +27,10 @@ else
   Dispatcher.to_prepare :redmine_rtmaterial do
     init
   end
+end
+
+Rails.application.config.to_prepare do
+  RedmineMaterial.apply_patch
 end
 
 Redmine::Plugin.register :redmine_rtmaterial do
