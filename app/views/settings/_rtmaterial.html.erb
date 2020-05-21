@@ -1,13 +1,13 @@
 <% defaults = Redmine::Plugin::registered_plugins[:redmine_rtmaterial].settings[:default] %>
+<% options = ::COLOR_SCHEME.map{|n| [I18n.t("color_scheme_" + n.gsub("-","_")), "color-"+n]} %>
 <p>
   <label><%= l(:setting_default_colors) %></label>
   <%= hidden_field_tag 'settings[default_colors]', '' %>
-  <%= select_tag('settings[default_colors]', "<option value=''></option>".html_safe+options_for_select(::COLOR_SCHEME, (@settings["default_colors"] || defaults["default_colors"]).to_s), multiple: false, class: 'rtmaterial_default_colors') %>
+  <%= select_tag('settings[default_colors]', "<option value=''></option>".html_safe+options_for_select(options, (@settings["default_colors"] || defaults["default_colors"]).to_s), multiple: false, class: 'rtmaterial_default_colors') %>
 </p>
 <p>
   <label><%= l(:setting_change_icon) %></label>
-  <%= hidden_field_tag 'settings[change_icon]', '' %>
-  <%= check_box_tag('settings[change_icon]', (@settings["_change_icon"] || defaults["change_icon"]), class: 'rtmaterial_change_icon') %>
+  <%= check_box_tag('settings[change_icon]', 1, @settings[:change_icon], class: 'rtmaterial_change_icon') %>
 </p>
 
 <script>

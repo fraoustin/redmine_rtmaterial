@@ -3,10 +3,8 @@ module RedmineMaterial
     def view_projects_form(context)
       p = context[:project]
       f = context[:form]
-      content_tag(:p, f.select(:rtmaterial_color_scheme, ::COLOR_SCHEME.map {|n| [n, n.to_s]}, :include_blank => p.blank_option
-#"#{l(:label_global_setting)} (#{Setting.plugin_redmine_rtmaterial['default_colors']})",
-      )) +
-      content_tag(:p, f.check_box(:rtmaterial_change_icon, :label => :setting_rtmaterial_change_icon))
+      content_tag(:p, f.select(:rtmaterial_color_scheme, p.color_scheme_options, :include_blank => p.color_scheme_blank_option)) +
+      content_tag(:p, f.select(:rtmaterial_change_icon, p.change_icon_options, :include_blank => p.change_icon_blank_option))
     end
   end
 end
