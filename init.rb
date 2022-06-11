@@ -30,7 +30,12 @@ else
 end
 
 Rails.application.config.to_prepare do
-  RedmineMaterial.apply_patch
+  RedmineRtmaterial.apply_patch
+end
+
+# for redmine 5
+Rails.application.config.after_initialize do
+  RedmineRtmaterial.apply_patch
 end
 
 Redmine::Plugin.register :redmine_rtmaterial do

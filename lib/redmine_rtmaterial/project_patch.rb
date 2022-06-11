@@ -1,4 +1,4 @@
-module RedmineMaterial
+module RedmineRtmaterial
   module ProjectPatch
     extend ActiveSupport::Concern
 

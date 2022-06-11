@@ -1,7 +1,7 @@
-require 'redmine_rtmaterial/project_patch'
-require 'redmine_rtmaterial/setting_patch'
+require File.dirname(__FILE__) + '/redmine_rtmaterial/project_patch'
+require File.dirname(__FILE__) + '/redmine_rtmaterial/setting_patch'
 
-module RedmineMaterial
+module RedmineRtmaterial
   def self.apply_patch
     ::Project.send :include, ProjectPatch
     ::Setting.singleton_class.prepend SettingPatch

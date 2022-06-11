@@ -1,4 +1,4 @@
-module RedmineMaterial
+module RedmineRtmaterial
   class ProjectListener < Redmine::Hook::ViewListener
     def view_projects_form(context)
       p = context[:project]
