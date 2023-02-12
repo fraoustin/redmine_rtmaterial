@@ -1,11 +1,11 @@
-en:
+fr:
   setting_default_colors: "Default color scheme"
-  setting_change_icon: "TRMaterial change icon"
+  setting_change_icon: "TRMaterial change icone"
   field_rtmaterial_color_scheme: "TRMaterial color scheme"
-  field_rtmaterial_change_icon: "TRMaterial change icon"
-  label_global_setting: "Global setting:"
-  true: "Yes"
-  false: "No"
+  field_rtmaterial_change_icon: "TRMaterial change icone"
+  label_global_setting: "Configuration globale:"
+  true: "Oui"
+  false: "Non"
 
   color_scheme_amber_blue: "amber-blue"
   color_scheme_amber_blueGrey: "amber-blueGrey"

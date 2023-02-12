@@ -1,21 +1,14 @@
-<% if !@project.nil? %>
-    <% if @project.custom_field_values.find(ifnone = ""){ |f| f.custom_field.name == 'RTMaterial' }.value != nil %>
-        <% if @project.custom_field_values.find(ifnone = ""){ |f| f.custom_field.name == 'RTMaterial' }.value.length > 0 %>
-            <link rel="stylesheet" href="/themes/RTMaterial/stylesheets/colors/<%= @project.custom_field_values.find{ |f| f.custom_field.name == 'RTMaterial' }.value %>.css" type="text/css" />
-            <script>
-                $(document).ready(function() {
-                    $("head").find("link[rel='shortcut icon']")[0].href = "/themes/RTMaterial/stylesheets/ico/icon-<%= @project.custom_field_values.find{ |f| f.custom_field.name == 'RTMaterial' }.value.split('-')[1] %>.ico";  
-                });
-            </script>
-        <% end %>
-    <% end %>
-<% else %>
-    <% if Setting.plugin_redmine_rtmaterial['default_colors'] != "" %>
-        <link rel="stylesheet" href="/themes/RTMaterial/stylesheets/colors/<%= Setting.plugin_redmine_rtmaterial['default_colors'] %>.css" type="text/css" />
-        <script>
-            $(document).ready(function() {
-                $("head").find("link[rel='shortcut icon']")[0].href = "/themes/RTMaterial/stylesheets/ico/icon-<%= Setting.plugin_redmine_rtmaterial['default_colors'].split('-')[1] %>.ico";
-            });
-        </script>
-    <% end %>
+<%
+color_scheme = @project.nil? ? Setting.plugin_redmine_rtmaterial['default_colors'] : @project.rtmaterial_current_color_scheme
+change_icon = @project.nil? ? Setting.plugin_redmine_rtmaterial['change_icon'] : @project.rtmaterial_current_change_icon
+%>
+<% if !@current_theme.blank? && @current_theme.name.downcase == "rtmaterial" && !color_scheme.blank? %>
+  <link rel="stylesheet" href="/themes/RTMaterial/stylesheets/colors/<%= color_scheme %>.css" type="text/css" />
+  <% if !change_icon.blank? && change_icon %>
+    <script>
+      $(document).ready(function() {
+        $("head").find("link[rel='shortcut icon']")[0].href = "/themes/RTMaterial/stylesheets/ico/icon-<%= color_scheme.split('-')[1] %>.ico";
+      });
+    </script>
+  <% end %>
 <% end %>
